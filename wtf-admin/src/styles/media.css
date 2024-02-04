@@ -1,0 +1,101 @@
+@media screen and (min-width: 300px) and (max-width: 767px) {
+    .greet-container{
+        width: 100%;
+        align-items: center;
+        align-self: center;
+    }
+    .page__title{
+        font-size: 36px;
+        text-align: center;
+    }
+    .page__subtitle{
+        text-align: center;
+    }
+    .page__text{
+        text-align: center;
+    }
+    .about-section{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .about-subtitle::after {
+        display: none;
+    }
+    .about-info{
+        width: 100%;
+    }
+    .about-heading__role{
+        text-align: center;
+    }
+    .about__techlist{
+        margin: 0 auto;
+        width: 70%;
+        /* text-align: center; */
+    }
+    .about__tech{
+        font-size: 16px;
+    }
+    .contact-section{
+        width: 90%;
+    }
+    .contact__form{
+        width: 100%;
+    }
+    .card__header{
+        text-align: center;
+    }
+    
+}
+
+@media screen and (min-width: 300px) and (max-width: 767px) {
+    .work__card {
+        display: flex;
+        flex-direction: column !important;
+        padding: 25px 10px !important;
+        text-align: center !important;
+    }
+    .card__photo {
+        width: 100% !important;
+        height: 200px !important;
+        border-radius: 10px !important;
+    }
+    .card__info{
+        padding-right: 0 !important;
+    }
+    .work__subtitle::after{
+        display: none !important;
+    }
+}
+@media screen and (min-width: 768px) and (max-width: 999px) {
+    .about-subtitle::after {
+        display: none;
+    }
+    .work__card {
+        display: flex;
+        flex-direction: column !important;
+        text-align: center;
+        padding: 25px 10px !important;
+        text-align: center !important;
+    }
+    .card__photo {
+        width: 100% !important;
+        height: 200px !important;
+        border-radius: 10px !important;
+    }
+    .card__info{
+        text-align: center;
+        padding-right: 0 !important;
+        gap: 25px !important;
+    }
+    .work__subtitle::after{
+        display: none !important;
+    }
+    .card__header{
+        text-align: center;
+    }
+    .card__text {
+        text-align: center;
+      }
+      
+}

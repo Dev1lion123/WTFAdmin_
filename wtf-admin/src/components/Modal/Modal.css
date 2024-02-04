@@ -1,0 +1,35 @@
+.modal{
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0,0,0,.4);
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: .5s;
+}
+
+.modal__content{
+    padding: 25px;
+    border-radius: 15px;
+    background-color: var(--aquamarine);
+    color: var(--blue-zodiac);
+    width: 35vw;
+    font-size: 24px;
+    line-height: 2em;
+}
+.modal__content p{
+    display: inline;
+    margin-left: 15px;
+}
+
+.modal.active{
+    opacity: 1;
+    pointer-events: all;
+    z-index: 999;
+    overflow: hidden;
+}
