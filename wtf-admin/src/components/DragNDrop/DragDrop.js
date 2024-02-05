@@ -1,7 +1,9 @@
 import React from "react";
 import './DragDrop.css'
+import { useTranslation } from 'react-i18next';
 // drag drop file component
 function DragDropFile() {
+  const {t, i18n} = useTranslation()
     // drag state
     const [dragActive, setDragActive] = React.useState(false);
     // ref
@@ -42,12 +44,13 @@ function DragDropFile() {
     };
     
     return (
-      <form id="form-file-upload" onDragEnter={handleDrag} onSubmit={(e) => e.preventDefault()}>
+      
+      <form className="element-animation" id="form-file-upload" onDragEnter={handleDrag} onSubmit={(e) => e.preventDefault()}>
         <input ref={inputRef} type="file" id="input-file-upload" multiple={true} onChange={handleChange} />
         <label id="label-file-upload" htmlFor="input-file-upload" className={dragActive ? "drag-active" : "" }>
           <div>
-            <p>Drag and drop your file here or</p>
-            <button className="upload-button" onClick={onButtonClick}>Upload a file</button>
+            <p>{t('post.pic')}</p>
+            <button className="upload-button" onClick={onButtonClick}>{t('post.picButton')}</button>
           </div> 
         </label>
         { dragActive && <div id="drag-file-element" onDragEnter={handleDrag} onDragLeave={handleDrag} onDragOver={handleDrag} onDrop={handleDrop}></div> }

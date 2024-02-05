@@ -1,11 +1,10 @@
 import React, { useEffect } from 'react';
 import Header from './components/header/Header'
-import Page from './components/page/Page'
+import Page from './components/page/Page.js'
 import { Suspense } from 'react'
 import { useTranslation } from 'react-i18next';
 import useLocalStorage from './hooks/use-localstorage';
 import i18n from './i18n';
-import Loader from './components/Loader/Loader';
 
 
 import './styles/appereance.css'

@@ -96,27 +96,6 @@ function Form() {
       </div>
       
       <DragDropFile/>
-      <div className="input__data">
-        <input
-          onBlur={(e) => pic.onBlur(e)}
-          value={pic.value}
-          onChange={(e) => pic.onChange(e)}
-          className="pic__input input form__control element-animation"
-          type="text"
-          placeholder={t("post.pic")}
-          name="pic"
-          required
-        />
-        {/* {pic.isDirty && pic.emailError && (
-          <div className="form__error">{t("error.invalidEmail")}</div>
-        )} */}
-        {pic.isDirty && pic.isEmpty && (
-          <div className="form__error">{t("error.empty")}</div>
-        )}
-        {pic.isDirty && pic.minLengthError && (
-          <div className="form__error">{t("error.length")}</div>
-        )}
-      </div>
       
       <div className="input__data">
         <textarea

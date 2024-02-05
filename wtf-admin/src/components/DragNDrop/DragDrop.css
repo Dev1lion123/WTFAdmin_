@@ -1,52 +1,55 @@
 #form-file-upload {
-    height: 16rem;
-    width: 800px;
-    max-width: 100%;
-    text-align: center;
-    position: relative;
-  }
-  
-  #input-file-upload {
-    display: none;
-  }
-  
-  #label-file-upload {
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-width: 2px;
-    border-radius: 8px;
-    border-style: dashed;
-    border-color: var(--aquamarine);
-    background-color: transparent;
-  }
-  
-  #label-file-upload.drag-active {
-    background-color: var(--aquamarine);
-  }
-  
-  .upload-button {
-    cursor: pointer;
-    padding: 10px;
-    font-size: 2rem;
-    border: none;
-    background-color: var(--outline);
-    color: var(--blue-zodiac);
-    margin-top: 10px;
-  }
-  
-  .upload-button:hover {
-    text-decoration-line: underline;
-  }
-  
-  #drag-file-element {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    border-radius: 1rem;
-    top: 0px;
-    right: 0px;
-    bottom: 0px;
-    left: 0px;
-  }
+  height: 16rem;
+  width: 800px;
+  max-width: 100%;
+  text-align: center;
+  position: relative;
+}
+
+#input-file-upload {
+  display: none;
+}
+
+#label-file-upload {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--aquamarine);
+  border-radius: 8px;
+  background-color: transparent;
+}
+
+#label-file-upload.drag-active {
+  background-color: var(--aquamarine);
+}
+
+.upload-button {
+  cursor: pointer;
+  padding: 15px;
+  font-size: 1.2rem;
+  border: none;
+  color: var(--outline);
+  border: 1px solid var(--outline);
+  background-color: transparent;
+  margin-top: 10px;
+  border-radius: 8px;
+  font-family: 'Overpass', sans-serif;
+  transition: all .15s ease-in-out;
+}
+
+.upload-button:hover {
+  background-color: var(--outline);
+  color:  var(--blue-zodiac);
+}
+
+#drag-file-element {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 1rem;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+}
