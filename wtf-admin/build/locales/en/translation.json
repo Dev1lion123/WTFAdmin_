@@ -1,0 +1,18 @@
+{
+    "post":{
+        "header":"Make a post",
+        "title":"Post title",
+        "link":"Link to the website",
+        "text":"Add some text",
+        "pic": "Drag and drop your picture here or",
+        "picButton": "Upload a file",
+        "modalRequest": "The data is successfully sended!",
+        "button": "Post"
+    },
+    "error":{
+        "length": "Некорректная длина",
+        "invalidEmail": "Некорректный формат e-mail",
+        "empty": "Данное поле не может быть пустым"
+    }
+    
+}
