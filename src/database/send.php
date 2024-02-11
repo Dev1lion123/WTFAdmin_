@@ -37,7 +37,7 @@ if ($mail->send()) {
     $response = ['success' => false, 'message' => 'Ошибка отправки формы'];
 }
 
-// Возвращаем ответ клиенту в формате JSON
+// Возвращаем ответ клиенту в формате JSON :)
 header('Content-type: application/json');
 echo json_encode($response);
 ?>
