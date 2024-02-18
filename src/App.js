@@ -1,12 +1,11 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState  } from 'react';
+import axios from 'axios';
 import Header from './components/header/Header'
 import Page from './components/page/Page.js'
 import { Suspense } from 'react'
 import { useTranslation } from 'react-i18next';
 import useLocalStorage from './hooks/use-localstorage';
 import i18n from './i18n';
-
-
 import './styles/appereance.css'
 import './styles/media.css'
 import './styles/settings.css'
@@ -19,17 +18,9 @@ function App() {
   const[language, setLanguage] = useLocalStorage('language', 'en')
 
   const handleLanguageChange = () => {
-    if(language === 'en'){
-      i18n.changeLanguage('ru')
-      setLanguage('ru')
-    }else if(language === 'ru'){
-      i18n.changeLanguage('en')
-      setLanguage('en')
-    }
+    const newLanguage = language === 'en' ? 'ru' : 'en'; 
+    setLanguage(newLanguage)
   }
-
-  
-
 
   return (
     <div>
