@@ -1,5 +1,4 @@
 import React, { useEffect, useState  } from 'react';
-import axios from 'axios';
 import Header from './components/header/Header'
 import Page from './components/page/Page.js'
 import { Suspense } from 'react'
@@ -11,7 +10,7 @@ import './styles/media.css'
 import './styles/settings.css'
 import './styles/simplebar.css'
 import './styles/style.css'
-
+import FileUpload from './components/DragNDrop/DragDrop.js';
 
 function App() {
   const {t, i18n} = useTranslation()
@@ -21,6 +20,16 @@ function App() {
     const newLanguage = language === 'en' ? 'ru' : 'en'; 
     setLanguage(newLanguage)
   }
+
+
+const App = () => {
+  return (
+    <div>
+      <h1>Cloudinary Image Upload</h1>
+      <FileUpload />
+    </div>
+  );
+};
 
   return (
     <div>

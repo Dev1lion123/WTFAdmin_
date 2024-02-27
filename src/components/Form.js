@@ -11,16 +11,20 @@ const sign = <FontAwesomeIcon icon={faPersonCircleCheck} size="2x" marginRight="
 
 function Form() {
   const [modalActive, setModalActive] = useState(false);
-  
-  const handleSubmit = async (event) => {
-    event.preventDefault();
+  const [file, setFile] = useState(null); // Состояние для хранения выбранного изображения
+  const handleSubmit = async (e) => {
+    e.preventDefault();
     try {
-      // Отправляем POST-запрос на сервер с данными формы
-      const response = await axios.post("/api/addData", {
-        title: title.value,
-        link: link.value,
-        pic: pic.value,
-        text: text.value
+      const formData = new FormData();
+      formData.append('file', file); 
+      formData.append('title', title.value);
+      formData.append('link', link.value);
+      formData.append('text', text.value);
+
+      const response = await axios.post("/api/uploadPhoto", formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
       });
 
       if (response.status === 200) {
@@ -34,12 +38,17 @@ function Form() {
     }
   };
 
-  // form validation
+  // Функция для обработки выбранного изображения
+  const handleFileChange = (selectedFile) => {
+    setFile(selectedFile);
+  };
+
+  // Form validation
   const { t } = useTranslation();
   const title = useInput("", { isEmpty: true, minLength: 5 });
   const link = useInput("", { isEmpty: true, minLength: 2 });
-  const pic = useInput("", { isEmpty: true, minLength: 1 });
   const text = useInput("", { isEmpty: true, minLength: 2 });
+  
 
   return (
     <form className="contact__form" onSubmit={handleSubmit}>
@@ -77,7 +86,7 @@ function Form() {
         )}
       </div>
 
-      <DragDropFile />
+      <DragDropFile onFileChange={handleFileChange} /> 
 
       <div className="input__data">
         <textarea
@@ -86,7 +95,9 @@ function Form() {
           onChange={text.onChange}
           className="form__textarea form__control element-animation"
           name="text"
-          id="text"
+          id=""
+          cols="30"
+          rows="10"
           placeholder={t("post.text")}
         ></textarea>
         {text.isDirty && text.isEmpty && <div className="form__error">{t("error.empty")}</div>}
@@ -95,20 +106,24 @@ function Form() {
         )}
       </div>
 
-      <button
-        disabled={!title.inputValid || !link.inputValid || !text.inputValid}
-        className="form__btn form__control element-animation"
-        type="submit"
-        name="submit"
-      >
-        {t("post.button")}
-      </button>
-      <Modal active={modalActive} setActive={setModalActive}>
-        {sign}
-        <p>{t("contact.modalThanks")}</p>
-        <br />
-        <p>{t("contact.modalRequest")}</p>
-      </Modal>
+      <div className="input__data">
+        <button
+          type="submit"
+          className="send__btn form__control element-animation"
+          
+        >
+          {t("post.send")}
+        </button>
+      </div>
+
+      {modalActive && (
+        <Modal
+          active={modalActive}
+          setActive={setModalActive}
+          icon={sign}
+          text={t("modal.message")}
+        />
+      )}
     </form>
   );
 }
